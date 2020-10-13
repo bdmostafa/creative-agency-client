@@ -1,0 +1,19 @@
+.feedback-box {
+    border: 1px solid #BFBFBF;
+    box-sizing: border-box;
+    border-radius: 4px; 
+}
+
+.feedback-box .card-body .card-text {
+    color: #707070;
+    font-weight: 400;
+    text-align: start;
+}
+
+.feedback-box .card-title {
+    font-weight: 700;
+}
+
+.feedback-box .card-title p {
+    font-weight: 500;
+}

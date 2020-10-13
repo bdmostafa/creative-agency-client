@@ -1,0 +1,25 @@
+.contact-form{
+    margin-top: 1rem;
+    display: inline-grid;
+}
+
+.contact-form input{
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+    width: 27rem;
+    border: none;
+    padding: .75rem;
+}
+
+.contact-form input[name='message'] {
+    height: 225px;
+    margin-bottom: -10px;
+}
+
+.error {
+    color: red;
+    margin-top: -1rem;
+    text-align: start;
+    margin-bottom: 1rem;
+}

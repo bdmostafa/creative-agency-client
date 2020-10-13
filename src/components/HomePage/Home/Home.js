@@ -6,11 +6,12 @@ import HeaderMain from '../Header/HeaderMain/HeaderMain';
 import NavBar from '../Header/NavBar/NavBar';
 import Services from '../Services/Services';
 import OurWorksCarousel from '../OurWorksCarousel/OurWorksCarousel';
+import Footer from '../../Footer/Footer';
 
 const Home = () => {
     return (
         <>
-            <div className="header-bg w-100" style={{ backgroundColor: '#FBD062' }}>
+            <div className="w-100" style={{ backgroundColor: '#FBD062' }}>
                 <NavBar />
                 <HeaderMain />
             </div>
@@ -20,7 +21,11 @@ const Home = () => {
                 <OurWorksCarousel />
             </div>
             <ClientsFeedback />
-            <ContactUs />
+            <div className="w-100" style={{ backgroundColor: '#FBD062' }}>
+                <ContactUs />
+                <Footer />
+            </div>
+            
         </>
     );
 };
