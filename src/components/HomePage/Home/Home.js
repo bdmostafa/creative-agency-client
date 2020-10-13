@@ -9,15 +9,19 @@ import WorksCarousel from '../WorksCarousel/WorksCarousel';
 
 const Home = () => {
     return (
-        <div>
-            <NavBar />
-            <HeaderMain />
+        <>
+            <div className="header-bg w-100" style={{ backgroundColor: '#FBD062' }}>
+                <NavBar />
+                <HeaderMain />
+            </div>
             <ClientCompany />
             <Services />
-            <WorksCarousel />
+            <div className="w-100" style={{ backgroundColor: '#111430' }}>
+                <WorksCarousel />
+            </div>
             <ClientsFeedback />
             <ContactUs />
-        </div>
+        </>
     );
 };
 

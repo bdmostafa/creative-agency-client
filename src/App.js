@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import { createContext } from 'react';
 import { useState } from 'react';
 import Home from './components/HomePage/Home/Home';

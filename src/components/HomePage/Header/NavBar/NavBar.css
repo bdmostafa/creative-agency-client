@@ -1,0 +1,20 @@
+.logo-img {
+    width: 150px;
+}
+
+.nav-link {
+    align-items: center;
+}
+
+.nav-link a {
+    color: #474747;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 2rem;
+    font-weight: 400;
+}
+
+.nav-link a:hover {
+    border-bottom: 3px solid #7AB259;
+    font-weight: 600;
+}
