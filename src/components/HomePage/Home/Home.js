@@ -5,7 +5,7 @@ import ContactUs from '../ContactUs/ContactUs';
 import HeaderMain from '../Header/HeaderMain/HeaderMain';
 import NavBar from '../Header/NavBar/NavBar';
 import Services from '../Services/Services';
-import WorksCarousel from '../WorksCarousel/WorksCarousel';
+import OurWorksCarousel from '../OurWorksCarousel/OurWorksCarousel';
 
 const Home = () => {
     return (
@@ -17,7 +17,7 @@ const Home = () => {
             <ClientCompany />
             <Services />
             <div className="w-100" style={{ backgroundColor: '#111430' }}>
-                <WorksCarousel />
+                <OurWorksCarousel />
             </div>
             <ClientsFeedback />
             <ContactUs />
