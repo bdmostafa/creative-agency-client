@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar = () => {
-    const [user, setUser] = useState(false);
+    const [user, setUser] = useState(true);
     const [admin, setAdmin] = useState(true);
     return (
         <div className="sidebar-list">

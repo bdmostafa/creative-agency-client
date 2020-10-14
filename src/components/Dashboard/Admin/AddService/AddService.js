@@ -11,7 +11,7 @@ const AddService = () => {
     const { register, errors, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
         const formData = new FormData();
         const totalData = JSON.stringify({
             title: data.title,

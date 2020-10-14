@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import AddReview from './Customer/AddReview/AddReview';
 import PlaceOrder from './Customer/PlaceOrder/PlaceOrder';
 import ServiceList from './Customer/ServiceList/ServiceList';
@@ -11,7 +11,9 @@ import AllServiceList from './Admin/AllServiceList/AllServiceList';
 import AddService from './Admin/AddService/AddService';
 import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
 
+
 const Dashboard = () => {
+    // const {serviceId} = useParams();
     const path = useLocation().pathname;
 
     return (
@@ -23,7 +25,7 @@ const Dashboard = () => {
                 </Col>
                 <Col xs={12} md={9} className="right-side-content">
                     {
-                        path === '/user/place-order' && <PlaceOrder />
+                        path == `/user/place-order` && <PlaceOrder />
                     }
                     {
                         path === '/user/service-list' && <ServiceList />

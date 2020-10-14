@@ -15,8 +15,10 @@ export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [order, setOrder] = useState({});
+
   return (
-    <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser, order, setOrder }}>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -34,6 +36,9 @@ function App() {
           <Route path="/user/place-order">
             <Dashboard />
           </Route>
+          {/* <Route path="/user/place-order/:serviceId">
+            <Dashboard />
+          </Route> */}
           <Route path="/user/service-list">
             <Dashboard />
           </Route>
