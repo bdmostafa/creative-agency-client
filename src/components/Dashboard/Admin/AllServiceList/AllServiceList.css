@@ -1,0 +1,18 @@
+.status select {
+    /* color: red; */
+    border: none;
+}
+
+.table {
+    border: 25px solid white;
+}
+
+.table td{
+    border-top: none;
+    background: white;
+}
+
+.table thead th {
+    border: none;
+    background-color: #F4F7FC;
+}

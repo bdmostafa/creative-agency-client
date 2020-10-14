@@ -40,6 +40,15 @@ function App() {
           <Route path="/user/add-review">
             <Dashboard />
           </Route>
+          <Route path="/admin/service-list">
+            <Dashboard />
+          </Route>
+          <Route path="/admin/add-service">
+            <Dashboard />
+          </Route>
+          <Route path="/admin/make-admin">
+            <Dashboard />
+          </Route>
           <Route path="*">
             <NoMatch />
           </Route>

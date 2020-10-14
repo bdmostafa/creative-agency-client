@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import AddReview from './Customer/AddReview/AddReview';
@@ -7,6 +7,9 @@ import ServiceList from './Customer/ServiceList/ServiceList';
 import HeaderDashboard from './shared/HeaderDashboard/HeaderDashboard';
 import Sidebar from './shared/Sidebar/Sidebar';
 import './Dashboard.css';
+import AllServiceList from './Admin/AllServiceList/AllServiceList';
+import AddService from './Admin/AddService/AddService';
+import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
 
 const Dashboard = () => {
     const path = useLocation().pathname;
@@ -27,6 +30,15 @@ const Dashboard = () => {
                     }
                     {
                         path === '/user/add-review' && <AddReview />
+                    }
+                    {
+                        path === '/admin/service-list' && <AllServiceList />
+                    }
+                    {
+                        path === '/admin/add-service' && <AddService />
+                    }
+                    {
+                        path === '/admin/make-admin' && <MakeAdmin />
                     }
                 </Col>
             </Row>
