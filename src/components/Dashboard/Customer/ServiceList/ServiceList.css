@@ -1,0 +1,10 @@
+.service-card {
+    border: none;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 25px;
+}
+
+.service-card .card-body {
+    margin-top: -15px;
+}

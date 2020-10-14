@@ -1,0 +1,24 @@
+.sidebar-list {
+    margin-top: 2rem;
+}
+
+.sidebar-list ul li {
+    list-style: none;
+}
+
+.sidebar-list ul li a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.sidebar-list ul li a:hover {
+    color: #009444;
+    text-decoration: none;
+}
+
+.sidebar-list ul li a i {
+    width: 24px
+}

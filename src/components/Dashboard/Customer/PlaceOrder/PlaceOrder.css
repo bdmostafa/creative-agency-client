@@ -1,0 +1,11 @@
+.order-form input {
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    width: 27rem;
+    border: none;
+    padding: .75rem;
+    border: 1px solid;
+    width: 570px;
+    height: 60px;
+    color: rgba(0, 0, 0, 0.3);
+}

@@ -6,18 +6,19 @@ import PlaceOrder from './Customer/PlaceOrder/PlaceOrder';
 import ServiceList from './Customer/ServiceList/ServiceList';
 import HeaderDashboard from './shared/HeaderDashboard/HeaderDashboard';
 import Sidebar from './shared/Sidebar/Sidebar';
+import './Dashboard.css';
 
 const Dashboard = () => {
     const path = useLocation().pathname;
-    
+
     return (
-        <div style={{ backgroundColor: 'white' }}>
+        <div style={{ backgroundColor: 'white'}}>
             <HeaderDashboard />
-            <Row>
-                <Col>
+            <Row >
+                <Col xs={12} md={3}>
                     <Sidebar />
                 </Col>
-                <Col>
+                <Col xs={12} md={9} className="right-side-content">
                     {
                         path === '/user/place-order' && <PlaceOrder />
                     }

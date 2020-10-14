@@ -7,15 +7,15 @@ const HeaderDashboard = () => {
     const {loggedInUser} = useContext(UserContext);
     console.log(loggedInUser.name)
     return (
-        <Row>
-            <Col md={2}>
+        <Row className="p-3">
+            <Col xs={12} md={3}>
             <Image src={logo} className="logo-img" />
             </Col>
-            <Col md={5}>
-                Order
+            <Col xs={6} md={5}>
+                <h2>Place Order</h2> 
             </Col>
-            <Col md={5}>
-                {loggedInUser.name}
+            <Col style={{textAlign: 'end', paddingRight: '5rem'}} xs={6} md={4}>
+                {loggedInUser.name || 'name'}
             </Col>
         </Row>
     );
