@@ -12,6 +12,7 @@
     cursor: pointer;
     margin-right: 2rem;
     font-weight: 400;
+    margin-left: auto;
 }
 
 .nav-link a:hover {

@@ -11,7 +11,13 @@ import Footer from '../../Footer/Footer';
 const Home = () => {
     return (
         <>
-            <div className="w-100" style={{ backgroundColor: '#FBD062' }}>
+            <div
+                className="w-100"
+                style={{
+                    backgroundColor: '#FBD062',
+                    clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0% 100%)',
+                    height: '35rem'
+                }}>
                 <NavBar />
                 <HeaderMain />
             </div>
@@ -25,7 +31,7 @@ const Home = () => {
                 <ContactUs />
                 <Footer />
             </div>
-            
+
         </>
     );
 };
