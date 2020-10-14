@@ -7,7 +7,7 @@ import logo from '../../../../images/logos/logo.png'
 const HeaderDashboard = () => {
     const {loggedInUser} = useContext(UserContext);
     const path = useLocation().pathname;
-    console.log(loggedInUser.name)
+    // console.log(loggedInUser.name)
     return (
         <Row className="p-3">
             <Col xs={12} md={3}>
