@@ -24,7 +24,7 @@ const OurWorksCarousel = () => {
         setService(activeItem)
     }, [slideIndex])
 
-console.log(service, slideIndex)
+// console.log(service, slideIndex)
 
     const onClickHandler = swiper => {
         if (swiper.clickedSlide) {

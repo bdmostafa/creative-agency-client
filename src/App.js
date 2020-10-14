@@ -7,6 +7,7 @@ import Home from './components/HomePage/Home/Home';
 import Login from './components/LoginPage/Login';
 import NoMatch from './components/NoMatch/NoMatch';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import Dashboard from './components/Dashboard/Dashboard';
 
 
 export const UserContext = createContext();
@@ -25,6 +26,18 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/user">
+            <Dashboard />
+          </Route>
+          <Route path="/user/place-order">
+            <Dashboard />
+          </Route>
+          <Route path="/user/service-list">
+            <Dashboard />
+          </Route>
+          <Route path="/user/add-review">
+            <Dashboard />
           </Route>
           <Route path="*">
             <NoMatch />
