@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import './MakeAdmin.css';
 
 const MakeAdmin = () => {
     const { register, errors, handleSubmit } = useForm();
@@ -12,7 +13,6 @@ const MakeAdmin = () => {
                 'Content-type': 'application/json',
                 email: data.email
             },
-            // body: JSON.stringify({ email: data.email })
         })
             .then(res => res.json())
             .then(result => {
@@ -22,11 +22,10 @@ const MakeAdmin = () => {
             })
     }
     return (
-        <Row>
-
-            <Col>
+        <Row style={{width: '90%'}}>
+            <Col className="make-admin-box">
+            <Form.Label>Email</Form.Label><br />
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Label>Email</Form.Label>
                     <Form.Control
                         type="email"
                         name="email"

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useLocation, useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import AddReview from './Customer/AddReview/AddReview';
 import PlaceOrder from './Customer/PlaceOrder/PlaceOrder';
 import ServiceList from './Customer/ServiceList/ServiceList';
@@ -10,10 +10,29 @@ import './Dashboard.css';
 import AllServiceList from './Admin/AllServiceList/AllServiceList';
 import AddService from './Admin/AddService/AddService';
 import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
+import { UserContext } from '../../App';
 
 
 const Dashboard = () => {
+    const { admin, setAdmin, user, setUser } = useContext(UserContext);
     const path = useLocation().pathname;
+    const history = useHistory();
+
+     // If admin is logged in, update user state
+     useEffect(() => {
+        if (admin) {
+            setUser(false);
+            if(path !== '/admin') {
+                history.replace('/admin')
+            }
+        }
+        if(user) {
+            // setAdmin(false);
+            history.push('/user')
+        }
+    }, [user, admin])
+
+    console.log('user:', user, 'admin:', admin)
 
     return (
         <div style={{ backgroundColor: 'white'}}>
@@ -24,7 +43,7 @@ const Dashboard = () => {
                 </Col>
                 <Col xs={12} md={9} className="right-side-content">
                     {
-                        path == `/user/place-order` || path == `/user` && <PlaceOrder />
+                        (path == `/user/place-order` || path == `/user`) && <PlaceOrder />
                     }
                     {
                         path === '/user/service-list' && <ServiceList />
@@ -33,7 +52,7 @@ const Dashboard = () => {
                         path === '/user/add-review' && <AddReview />
                     }
                     {
-                        path === '/admin/service-list' || path === '/admin' && <AllServiceList />
+                        (path === '/admin/all-service-list' || path === '/admin') && <AllServiceList />
                     }
                     {
                         path === '/admin/add-service' && <AddService />

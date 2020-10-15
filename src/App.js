@@ -19,6 +19,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [admin, setAdmin] = useState(false);
   const [order, setOrder] = useState({});
+  const [user, setUser] = useState(true);
 
   return (
     <UserContext.Provider value={{
@@ -27,7 +28,9 @@ function App() {
       order,
       setOrder,
       admin,
-      setAdmin
+      setAdmin,
+      user,
+      setUser
     }}>
       <Router>
         <Switch>

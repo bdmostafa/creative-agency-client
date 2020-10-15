@@ -5,9 +5,9 @@ import { UserContext } from '../../../../App';
 import logo from '../../../../images/logos/logo.png'
 
 const HeaderDashboard = () => {
-    const {loggedInUser} = useContext(UserContext);
+    const {loggedInUser, admin} = useContext(UserContext);
     const path = useLocation().pathname;
-    // console.log(loggedInUser.name)
+
     return (
         <Row className="p-3">
             <Col xs={12} md={3}>
@@ -18,7 +18,7 @@ const HeaderDashboard = () => {
             <Col xs={6} md={5}>
                 <h2>
                     {
-                        path === '/user/place-order' || path === '/user' && 'Place Order'
+                        (path === '/user/place-order' || path === '/user') && 'Place Order'
                     }
                     {
                         path === '/user/service-list' && 'Your Service List'
@@ -27,7 +27,7 @@ const HeaderDashboard = () => {
                         path === '/user/add-review' && 'Add Review'
                     }
                     {
-                        path === '/admin/service-list' && 'All Services List'
+                        (path === '/admin/all-service-list' || path === '/admin') && 'All Services List'
                     }
                     {
                         path === '/admin/add-service' && 'Add Service'
@@ -38,6 +38,9 @@ const HeaderDashboard = () => {
                 </h2> 
             </Col>
             <Col style={{textAlign: 'end', paddingRight: '5rem'}} xs={6} md={4}>
+                {
+                    admin && <Image src={loggedInUser.image} style={{width: '45px', marginRight: '10px'}} roundedCircle />
+                }
                 {loggedInUser.name}
             </Col>
         </Row>

@@ -2,14 +2,13 @@
     background: #FFFFFF;
     border-radius: 20px;
     padding: 1.5rem;
+    width: 90%;
 }
 
 .add-service-form input {
     margin-bottom: 1rem;
     padding: .75rem;
-    width: 450px;
     height: 40px;
-    color: rgba(0, 0, 0, 0.3);
     background: #FFFFFF;
     border: 0.666667px solid #C9C9C9;
     box-sizing: border-box;
@@ -25,10 +24,35 @@
 }
 
 .add-service-form textarea.form-control {
-    width: 450px;
+    /* width: 450px; */
+}
+
+.btn-upload {
+    background: #DEFFED;
+    border: 1px solid #009444;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #009444;
 }
 
 .btn-send {
+    width: 108px;
+    height: 37px;
     background: #009444;
     border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.btn-row {
+    justify-content: flex-end;
+    width: 91.5%;
+    margin-top: 1rem;
 }

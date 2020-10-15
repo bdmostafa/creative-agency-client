@@ -10,8 +10,14 @@ const AddService = () => {
 
     const { register, errors, handleSubmit } = useForm();
 
+    const handleImage = (e) => {
+        console.log( e.target.value)
+        document.getElementById('image').value = e.target.value;
+    }
+
+
     const onSubmit = data => {
-        // console.log(data)
+        console.log(data)
         const formData = new FormData();
         const totalData = JSON.stringify({
             title: data.title,
@@ -34,7 +40,7 @@ const AddService = () => {
                 }
             })
     }
-    
+
     return (
         <div>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -56,16 +62,23 @@ const AddService = () => {
                         </Col>
                         <Col md={5}>
                             <Form.Label>Icon</Form.Label>
-                            {/* <div className='file-upload' 
-                                    style={{background:`url(${upload}) no-repeat`, backgroundSize:'30px 30px'}}>
-                                    <input type="file"/>
-                                    <p style={{color:'#009444',margin:'0', marginLeft:'5px'}}>Upload image</p>
-                                </div> */}
                             <Form.Control
                                 name="icon"
                                 type="file"
+                                hidden
+                                id="image"
                                 ref={register({ required: true })}
                             />
+                            <br />
+                            <Button
+                                className="btn-upload"
+                                onClick={handleImage}
+                                // type="button"
+                            >
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                {' '} Upload Image
+                            </Button>
+                            <br />
                             {
                                 errors.icon
                                 && <span className="error">Icon image is required</span>
@@ -73,8 +86,7 @@ const AddService = () => {
                         </Col>
                     </Row>
                     <Row>
-
-                        <Col>
+                        <Col md={5}>
                             <Form.Label>Description</Form.Label>
                             <Form.Control
                                 as="textarea" rows={3}
@@ -87,15 +99,30 @@ const AddService = () => {
                                 && <span className="error mt-3 mb-0">Description is required</span>
                             }
                         </Col>
+                        <Col md={5}>
+                            <Form.Label>Price</Form.Label>
+                            <Form.Control
+                                name="price"
+                                type="number"
+                                ref={register({ /*required: true */ })}
+                                placeholder="Price for this service"
+                            />
+                            {/* {
+                                errors.price
+                                && <span className="error mt-3 mb-0">Price is required</span>
+                            } */}
+                        </Col>
                     </Row>
                 </div>
-                <Button
-                    className="btn-brand btn-send mt-0"
-                    type="submit"
-                    variant="dark"
-                >
-                    Submit
-                </Button>
+                <Row className="btn-row">
+                    <Button
+                        className="btn-brand btn-send mt-0"
+                        type="submit"
+                        variant="dark"
+                    >
+                        Submit
+                    </Button>
+                </Row>
             </Form>
         </div>
     );

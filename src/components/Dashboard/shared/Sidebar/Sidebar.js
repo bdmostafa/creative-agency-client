@@ -4,15 +4,7 @@ import { UserContext } from '../../../../App';
 import './Sidebar.css';
 
 const Sidebar = () => {
-    const { loggedInUser, admin } = useContext(UserContext);
-    const [user, setUser] = useState(true);
-    // const [admin, setAdmin] = useState(false);
-
-    // If admin is logged in, update user state
-    useEffect(() => {
-        if (admin) setUser(!user)
-    }, [])
-    console.log(user, admin)
+    const { admin, user } = useContext(UserContext);
 
     return (
         <div className="sidebar-list">
@@ -42,9 +34,9 @@ const Sidebar = () => {
                         :
                         <>
                             <li>
-                                <Link to="/admin/service-list">
+                                <Link to="/admin/all-service-list">
                                     <i className="far fa-list-alt"></i>
-                                     Service List
+                                     All Service List
                                 </Link>
                             </li>
                             <li>

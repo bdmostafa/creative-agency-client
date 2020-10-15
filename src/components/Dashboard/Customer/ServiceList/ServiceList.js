@@ -9,7 +9,7 @@ const ServiceList = () => {
     const [orderedServices, setOrderedServices] = useState([]);
 
     useEffect(() => {
-        fetch('http:///localhost:4200/ordersByEmail', {
+        fetch('http:///localhost:4200/ordersListByEmail', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
