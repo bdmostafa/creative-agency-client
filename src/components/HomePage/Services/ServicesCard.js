@@ -4,7 +4,7 @@ import { Card, Col } from 'react-bootstrap';
 const ServicesCard = ({ handleService, service }) => {
     
     const { _id, title, description } = service;
-
+console.log(service)
     return (
         <Col
             xs={12}

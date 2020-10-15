@@ -29,14 +29,13 @@ const AddService = () => {
 
         fetch('http://localhost:4200/addService', {
             method: 'POST',
-            // headers: { 'Content-type': 'application/json' },
             body: formData
         })
             .then(res => res.json())
             .then(result => {
                 if (result) {
                     alert('You added a service successfully.')
-                    history.replace('/')
+                    history.replace('/admin')
                 }
             })
     }

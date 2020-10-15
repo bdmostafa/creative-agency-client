@@ -22,13 +22,15 @@ const Dashboard = () => {
      useEffect(() => {
         if (admin) {
             setUser(false);
-            if(path !== '/admin') {
+            if(path.startsWith('user', 1)) {
                 history.replace('/admin')
             }
         }
         if(user) {
             // setAdmin(false);
-            history.push('/user')
+            if(path.startsWith('admin', 1)) {
+                history.push('/user')
+            }
         }
     }, [user, admin])
 

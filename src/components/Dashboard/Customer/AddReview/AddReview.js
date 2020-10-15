@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { UserContext } from '../../../../App';
 
 const AddReview = () => {
+    const { loggedInUser } = useContext(UserContext);
+    const history = useHistory();
+    console.log(loggedInUser.image)
     const { register, errors, handleSubmit } = useForm();
-    const onSubmit = data => { console.log(data) }
+
+    const onSubmit = data => {
+
+
+        const updatedForm = {
+            image: loggedInUser.image,
+            name: data.name,
+            designation: data.designation,
+            description: data.description
+        };
+
+        console.log(updatedForm)
+        fetch('http://localhost:4200/addReview', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(updatedForm)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    alert('You have added review successfully.')
+                    history.replace('/user')
+                }
+            })
+    }
+
     return (
         <div>
             <Form
@@ -22,13 +55,13 @@ const AddReview = () => {
                     && <span className="error">Your name is required</span>
                 }
                 <Form.Control
-                    name="company"
+                    name="designation"
                     type="text"
                     ref={register({ required: true })}
                     placeholder="Company's name, designation*"
                 />
                 {
-                    errors.company
+                    errors.designation
                     && <span className="error">Company's name, designation is required</span>
                 }
                 <Form.Control
