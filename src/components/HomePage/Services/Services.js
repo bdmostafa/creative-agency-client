@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import './Services.css';
@@ -7,7 +7,7 @@ import ServicesCard from './ServicesCard';
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    const {setOrder} = useContext(UserContext);
+    const { setOrder } = useContext(UserContext);
     const history = useHistory();
 
     // When page is loaded, fetch api to get all services
@@ -30,7 +30,21 @@ const Services = () => {
             <Row><h2 className="m-auto p-5">Provide awesome <span style={{ color: '#7AB259' }}>services</span> </h2></Row>
             <Row>
                 {
-                    services && services.map(service =>
+                    services.length === 0
+                    && <Button className="m-5 m-auto" variant="primary" disabled>
+                        <Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                        />
+                            Services Loading...
+                        </Button>
+                }
+                {
+                    services.length > 0
+                    && services.map(service =>
                         <ServicesCard
                             key={service._id}
                             handleService={handleService}
@@ -39,7 +53,7 @@ const Services = () => {
                     )
                 }
             </Row>
-            
+
         </Container>
     );
 };

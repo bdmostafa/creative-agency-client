@@ -23,7 +23,7 @@ const ServiceList = () => {
     return (
         <Row>
             {
-                orderedServices
+                orderedServices.length > 0
                 && orderedServices.map(service =>
                     <Col key={service._id} md={5}>
                         <Card className="service-card">
