@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Button, Card, Col, Row, Spinner } from 'react-bootstrap';
 import { UserContext } from '../../../../App';
 import service from '../../../../images/icons/service1.png';
 import './ServiceList.css'
@@ -23,13 +23,26 @@ const ServiceList = () => {
     return (
         <Row>
             {
+                orderedServices.length === 0
+                && <Button className="mt-5 m-auto" variant="primary" disabled>
+                    <Spinner
+                        as="span"
+                        animation="grow"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                    />
+                           Service List Loading...
+                    </Button>
+            }
+            {
                 orderedServices.length > 0
                 && orderedServices.map(service =>
                     <Col key={service._id} md={5}>
                         <Card className="service-card">
                             <Row className='d-flex justify-content-between align-items-center p-4'>
-                                <Card.Img src={`data:image/png;base64,${service.image.img}`} className="w-25" />
-                                <Button variant="primary">Status</Button>
+                                <Card.Img src={service && `data:image/png;base64,${service.img.img}`} className="w-25" />
+                                <Button variant="primary">{service.status}</Button>
                             </Row>
                             <Card.Body>
                                 <Card.Title>

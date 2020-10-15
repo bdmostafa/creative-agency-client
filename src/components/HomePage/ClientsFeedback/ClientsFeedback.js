@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Image, Row, Spinner } from 'react-bootstrap';
 import './ClientsFeedback.css'
 
 const ClientsFeedback = () => {
@@ -18,6 +18,19 @@ const ClientsFeedback = () => {
         <Container className="text-center mb-5 pb-5">
             <Row><h2 className="m-auto p-5">Clients <span style={{ color: '#7AB259' }}> Feedback</span> </h2></Row>
             <Row>
+            {
+                    reviews.length === 0
+                    && <Button className="m-5 m-auto" variant="primary" disabled>
+                        <Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                        />
+                            Feedback Loading...
+                        </Button>
+                }
                 {
                     reviews.length > 0
                     && reviews.map(review =>

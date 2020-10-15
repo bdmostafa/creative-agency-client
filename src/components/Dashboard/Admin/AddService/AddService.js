@@ -10,9 +10,8 @@ const AddService = () => {
 
     const { register, errors, handleSubmit } = useForm();
 
-    const handleImage = (e) => {
-        console.log( e.target.value)
-        document.getElementById('image').value = e.target.value;
+    const handleImage = () => {
+        document.getElementById('image').click();
     }
 
 
@@ -21,7 +20,8 @@ const AddService = () => {
         const formData = new FormData();
         const totalData = JSON.stringify({
             title: data.title,
-            description: data.description
+            description: data.description,
+            price: data.price
         });
 
         formData.append('total', totalData)
@@ -106,10 +106,10 @@ const AddService = () => {
                                 ref={register({ /*required: true */ })}
                                 placeholder="Price for this service"
                             />
-                            {/* {
+                            {
                                 errors.price
                                 && <span className="error mt-3 mb-0">Price is required</span>
-                            } */}
+                            }
                         </Col>
                     </Row>
                 </div>

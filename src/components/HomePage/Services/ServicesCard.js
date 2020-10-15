@@ -16,7 +16,7 @@ console.log(service)
                 <Card.Body>
                     <Card.Img
                         variant="top"
-                        src={service && `data:image/png;base64,${service.image.img}`}
+                        src={service && `data:image/png;base64,${service.img.img}`}
                         className="w-25 m-3"
                     />
                     <Card.Title>{title}</Card.Title>

@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Dropdown, DropdownButton, Spinner, Table } from 'react-bootstrap';
+import { Button, DropdownButton, Row, Spinner, Table } from 'react-bootstrap';
 import { UserContext } from '../../../../App';
-import './AllServiceList.css'
+import './AllServiceList.css';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 const AllServiceList = () => {
     const { loggedInUser } = useContext(UserContext);
@@ -17,6 +19,29 @@ const AllServiceList = () => {
             .then(data => setOrderedServices(data))
     }, [])
 
+    const handleStatus = (e, id) => {
+        fetch(`http://localhost:4200/updateStatus/`, {
+            method: 'PATCH',
+            body: JSON.stringify({ status: e.value }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+                id
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    alert("You have successfully updated an order status")
+                }
+            })
+    }
+
+    const options = [
+        'Pending', 'On going', 'Done'
+    ];
+    // const defaultOption = options[0];
+
+
     return (
         <div className="pr-5">
             <Table >
@@ -31,19 +56,6 @@ const AllServiceList = () => {
                 </thead>
                 <tbody>
                     {
-                        orderedServices.length === 0
-                        && <Button className="mt-5" variant="primary" disabled>
-                            <Spinner
-                                as="span"
-                                animation="grow"
-                                size="sm"
-                                role="status"
-                                aria-hidden="true"
-                            />
-                            Loading...
-                        </Button>
-                    }
-                    {
                         orderedServices.length > 0
                         && orderedServices.map(service =>
                             <tr key={service._id}>
@@ -52,19 +64,38 @@ const AllServiceList = () => {
                                 <td>{service.title}</td>
                                 <td>{service.projectDetails}</td>
                                 <td className="status">
-                                    <select>
-                                        <option value="Pending">Pending</option>
-                                        <option value="On going">On going</option>
-                                        <option value="Done">Done</option>
-                                        <i class="fas fa-sort-down text-dark"></i></select>
+                                    <Dropdown
+                                    style={{color: 'red'}}
+                                        onChange={(e) => { handleStatus(e, `${service._id}`) }}
+                                        options={options}
+                                        value={service.status}
+                                    // placeholder="Select an option" 
+                                    />
                                 </td>
                             </tr>
                         )
                     }
                 </tbody>
             </Table>
+            <Row>
+                {
+                    orderedServices.length === 0
+                    && <Button className="mt-5 m-auto" variant="primary" disabled>
+                        <Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                        />
+                            Service List Loading...
+                        </Button>
+                }
+            </Row>
         </div>
     );
 };
 
 export default AllServiceList;
+
+

@@ -3,9 +3,29 @@
     border-radius: 4px;
     width: 27rem;
     border: none;
-    padding: .75rem;
-    border: 1px solid;
-    width: 570px;
     height: 60px;
     color: black;
+    letter-spacing: 0.396px;
+    background: #FFFFFF;
+}
+
+.btn-project-upload {
+    width: 271px;
+    height: 60px;
+    background: #DEFFED;
+    border: 1px solid #009444;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #009444;
+}
+
+.send {
+    background: #111430;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
 }

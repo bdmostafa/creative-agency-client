@@ -4,4 +4,5 @@
     padding-left: 3rem;
     display: inline-table;
     padding-bottom: 10rem;
+    min-height: 100vh;
 }

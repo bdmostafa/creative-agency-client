@@ -19,7 +19,7 @@ const HeaderMain = () => {
                     <Button size="sm" variant="dark" className="btn-brand mt-3">Hire Us</Button>
                 </Col>
                 <Col md={7}>
-                    <Image src={frame} className="frame-img" />
+                    <Image src={frame} className="frame-img d-none d-sm-block" />
                 </Col>
             </Row>
         </Container>

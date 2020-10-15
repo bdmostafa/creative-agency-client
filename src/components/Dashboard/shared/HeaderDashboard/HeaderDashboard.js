@@ -21,7 +21,7 @@ const HeaderDashboard = () => {
                         (path === '/user/place-order' || path === '/user') && 'Place Order'
                     }
                     {
-                        path === '/user/service-list' && 'Your Service List'
+                        path === '/user/service-list' && 'My Service List'
                     }
                     {
                         path === '/user/add-review' && 'Add Review'
@@ -41,7 +41,7 @@ const HeaderDashboard = () => {
                 {
                     admin && <Image src={loggedInUser.image} style={{width: '45px', marginRight: '10px'}} roundedCircle />
                 }
-                {loggedInUser.name}
+                <strong>{loggedInUser.name}</strong> 
             </Col>
         </Row>
     );
