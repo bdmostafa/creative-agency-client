@@ -13,19 +13,19 @@ const Sidebar = () => {
                     !admin
                         ? <>
                             <li>
-                                <Link to="/user/place-order">
+                                <Link to="/dashboard/user/place-order">
                                     <i className="fas fa-cart-plus"></i>
                                     Place Order
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/user/service-list">
+                                <Link to="/dashboard/user/service-list">
                                     <i className="far fa-list-alt"></i>
                                     Service List
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/user/add-review">
+                                <Link to="/dashboard/user/add-review">
                                     <i className="far fa-comment-alt"></i>
                                     Add Review
                                 </Link>
@@ -34,19 +34,19 @@ const Sidebar = () => {
                         :
                         <>
                             <li>
-                                <Link to="/admin/all-service-list">
+                                <Link to="/dashboard/admin/all-service-list">
                                     <i className="far fa-list-alt"></i>
                                      All Service List
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/admin/add-service">
+                                <Link to="/dashboard/admin/add-service">
                                     <i className="fas fa-plus"></i>
                                     Add Service
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/admin/make-admin">
+                                <Link to="/dashboard/admin/make-admin">
                                     <i className="fas fa-user-plus"></i>
                                     Make Admin
                                 </Link>

@@ -35,7 +35,7 @@ const AddService = () => {
             .then(result => {
                 if (result) {
                     alert('You added a service successfully.')
-                    history.replace('/admin')
+                    history.replace('/dashboard/admin')
                 }
             })
     }

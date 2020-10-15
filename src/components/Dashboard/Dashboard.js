@@ -22,14 +22,14 @@ const Dashboard = () => {
      useEffect(() => {
         if (admin) {
             setUser(false);
-            if(path.startsWith('user', 1)) {
-                history.replace('/admin')
+            if(path.startsWith('user', 10)) {
+                history.replace('/dashboard/admin')
             }
         }
         if(user) {
             // setAdmin(false);
-            if(path.startsWith('admin', 1)) {
-                history.push('/user')
+            if(path.startsWith('admin', 10)) {
+                history.push('/dashboard/user')
             }
         }
     }, [user, admin])
@@ -45,22 +45,22 @@ const Dashboard = () => {
                 </Col>
                 <Col xs={12} md={9} className="right-side-content">
                     {
-                        (path == `/user/place-order` || path == `/user`) && <PlaceOrder />
+                        (path == `/dashboard/user/place-order` || path == `/dashboard/user`) && <PlaceOrder />
                     }
                     {
-                        path === '/user/service-list' && <ServiceList />
+                        path === '/dashboard/user/service-list' && <ServiceList />
                     }
                     {
-                        path === '/user/add-review' && <AddReview />
+                        path === '/dashboard/user/add-review' && <AddReview />
                     }
                     {
-                        (path === '/admin/all-service-list' || path === '/admin') && <AllServiceList />
+                        (path === '/dashboard/admin/all-service-list' || path === '/dashboard/admin') && <AllServiceList />
                     }
                     {
-                        path === '/admin/add-service' && <AddService />
+                        path === '/dashboard/admin/add-service' && <AddService />
                     }
                     {
-                        path === '/admin/make-admin' && <MakeAdmin />
+                        path === '/dashboard/admin/make-admin' && <MakeAdmin />
                     }
                 </Col>
             </Row>

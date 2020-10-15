@@ -33,7 +33,7 @@ const AddReview = () => {
             .then(result => {
                 if (result) {
                     alert('You have added review successfully.')
-                    history.replace('/user')
+                    history.replace('/dashboard/user')
                 }
             })
     }

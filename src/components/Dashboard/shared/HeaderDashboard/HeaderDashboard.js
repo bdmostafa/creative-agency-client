@@ -18,22 +18,22 @@ const HeaderDashboard = () => {
             <Col xs={6} md={5}>
                 <h2>
                     {
-                        (path === '/user/place-order' || path === '/user') && 'Place Order'
+                        (path === '/dashboard/user/place-order' || path === '/dashboard/user') && 'Place Order'
                     }
                     {
-                        path === '/user/service-list' && 'My Service List'
+                        path === '/dashboard/user/service-list' && 'My Service List'
                     }
                     {
-                        path === '/user/add-review' && 'Add Review'
+                        path === '/dashboard/user/add-review' && 'Add Review'
                     }
                     {
-                        (path === '/admin/all-service-list' || path === '/admin') && 'All Services List'
+                        (path === '/dashboard/admin/all-service-list' || path === '/dashboard/admin') && 'All Services List'
                     }
                     {
-                        path === '/admin/add-service' && 'Add Service'
+                        path === '/dashboard/admin/add-service' && 'Add Service'
                     }
                     {
-                        path === '/admin/make-admin' && 'Make Admin'
+                        path === '/dashboard/admin/make-admin' && 'Make Admin'
                     }
                 </h2> 
             </Col>

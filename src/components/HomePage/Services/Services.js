@@ -22,7 +22,7 @@ const Services = () => {
         const selectedService = services.find(service => service._id === id);
         setOrder(selectedService);
         // Redirect to place order page
-        history.push(`/user/place-order`);
+        history.push(`/dashboard/user/place-order`);
     }
 
     return (
