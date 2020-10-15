@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { createUserWithEmailAndPassword, fbSignIn, loginFrameworkInit, signInWithEmailAndPassword } from './FirebaseLoginManager';
 import { googleSignIn } from './FirebaseLoginManager';
 import { useForm } from 'react-hook-form';
@@ -13,43 +13,11 @@ const Login = () => {
     // Initialize firebase/login framework
     loginFrameworkInit();
 
-    const { setLoggedInUser } = useContext(UserContext);
-    // const [newUser, setNewUser] = useState(false);
+    const { loggedInUser, setLoggedInUser, setAdmin } = useContext(UserContext);
 
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
-
-
-    // const handleResponse = (res) => {
-    //     setLoggedInUser(res);
-    //     // Redirect when signed in
-    //     history.replace(from);
-    // }
-
-
-
-    // const { register, errors, handleSubmit } = useForm();
-    // const onSubmit = data => {
-    //     // const updatedFromData = {
-    //     //     ...data,
-    //     // }
-    //     const { email, password } = data;
-
-    //     if (newUser && email && password) {
-    //         createUserWithEmailAndPassword(email, password)
-    //             .then(res => {
-    //                 handleResponse(res);
-    //             })
-    //     }
-
-    //     if (!newUser && email && password) {
-    //         signInWithEmailAndPassword(email, password)
-    //             .then(res => {
-    //                 handleResponse(res);
-    //             })
-    //     }
-    // }
 
 
     const handleGoogleSignIn = () => {
@@ -61,9 +29,28 @@ const Login = () => {
             })
     }
 
+    // Check if the user is an admin or not when logged in for the first time 
+    useEffect(() => {
+        fetch('http://localhost:4200/isAdmin', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result) setAdmin(true);
+            })
+
+    }, [loggedInUser])
+
+
+
     return (
         <Container className="text-center">
-            <Image className="login-logo" src={logo} />
+            <Link to='/'>
+                <Image className="login-logo" src={logo} />
+            </Link>
+
             <div className="login-box text-center">
                 <h2>Login With</h2>
                 <Button
@@ -75,18 +62,18 @@ const Login = () => {
                         className="google-icon"
                         src={googleIcon}
                     />
-                   <span>Continue with Google</span> 
+                    <span>Continue with Google</span>
                 </Button>
                 <p>
-                    <span>Don't have an account?</span>  
+                    <span>Don't have an account?</span>
                     <strong
-                            onClick={handleGoogleSignIn}
-                            style={{
-                                cursor: 'pointer',
-                                color: '#3F90FC'
-                            }}
-                        >
-                           {' '} Create an account
+                        onClick={handleGoogleSignIn}
+                        style={{
+                            cursor: 'pointer',
+                            color: '#3F90FC'
+                        }}
+                    >
+                        {' '} Create an account
                     </strong>
                 </p>
             </div>

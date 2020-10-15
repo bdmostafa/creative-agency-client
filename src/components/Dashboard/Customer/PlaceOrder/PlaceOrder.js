@@ -10,7 +10,8 @@ const PlaceOrder = () => {
     const {loggedInUser, order} = useContext(UserContext);
     const history = useHistory();
 
-    console.log(order)
+    // console.log(order)
+
     const { register, errors, handleSubmit } = useForm();
     const onSubmit = data => { 
         const {name, email, projectDetails, price} = data;
@@ -39,7 +40,7 @@ const PlaceOrder = () => {
                 }
             })
     }
-
+// console.log(loggedInUser)
     return (
         <div>
             <Form

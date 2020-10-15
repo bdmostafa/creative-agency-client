@@ -13,7 +13,6 @@ import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
 
 
 const Dashboard = () => {
-    // const {serviceId} = useParams();
     const path = useLocation().pathname;
 
     return (
@@ -25,7 +24,7 @@ const Dashboard = () => {
                 </Col>
                 <Col xs={12} md={9} className="right-side-content">
                     {
-                        path == `/user/place-order` && <PlaceOrder />
+                        path == `/user/place-order` || path == `/user` && <PlaceOrder />
                     }
                     {
                         path === '/user/service-list' && <ServiceList />
@@ -34,7 +33,7 @@ const Dashboard = () => {
                         path === '/user/add-review' && <AddReview />
                     }
                     {
-                        path === '/admin/service-list' && <AllServiceList />
+                        path === '/admin/service-list' || path === '/admin' && <AllServiceList />
                     }
                     {
                         path === '/admin/add-service' && <AddService />

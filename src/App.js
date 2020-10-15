@@ -9,16 +9,26 @@ import Login from './components/LoginPage/Login';
 import NoMatch from './components/NoMatch/NoMatch';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
+import PrivateRoute from './components/LoginPage/PrivateRoute';
+
 
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [admin, setAdmin] = useState(false);
   const [order, setOrder] = useState({});
 
   return (
-    <UserContext.Provider value={{ loggedInUser, setLoggedInUser, order, setOrder }}>
+    <UserContext.Provider value={{
+      loggedInUser,
+      setLoggedInUser,
+      order,
+      setOrder,
+      admin,
+      setAdmin
+    }}>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -30,30 +40,30 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/user">
+          <PrivateRoute path="/user">
             <Dashboard />
-          </Route>
-          <Route path="/user/place-order">
+          </PrivateRoute>
+          <PrivateRoute path="/admin">
             <Dashboard />
-          </Route>
-          {/* <Route path="/user/place-order/:serviceId">
+          </PrivateRoute>
+          {/* <PrivateRoute path="/user/place-order">
             <Dashboard />
-          </Route> */}
-          <Route path="/user/service-list">
+          </PrivateRoute>
+          <PrivateRoute path="/user/service-list">
             <Dashboard />
-          </Route>
-          <Route path="/user/add-review">
+          </PrivateRoute>
+          <PrivateRoute path="/user/add-review">
             <Dashboard />
-          </Route>
-          <Route path="/admin/service-list">
+          </PrivateRoute>
+          <PrivateRoute path="/admin/service-list">
             <Dashboard />
-          </Route>
-          <Route path="/admin/add-service">
+          </PrivateRoute>
+          <PrivateRoute path="/admin/add-service">
             <Dashboard />
-          </Route>
-          <Route path="/admin/make-admin">
+          </PrivateRoute>
+          <PrivateRoute path="/admin/make-admin">
             <Dashboard />
-          </Route>
+          </PrivateRoute> */}
           <Route path="*">
             <NoMatch />
           </Route>

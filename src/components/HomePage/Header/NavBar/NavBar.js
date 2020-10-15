@@ -17,7 +17,11 @@ const NavBar = () => {
     return (
         <Container>
             <Navbar bg="#FBD062" expand="lg">
-                <Navbar.Brand><Image src={logo} className="logo-img" /></Navbar.Brand>
+                <Navbar.Brand>
+                    <Link to='/'>
+                        <Image src={logo} className="logo-img" />
+                    </Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto nav-link">

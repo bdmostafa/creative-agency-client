@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Col, Image, Row } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 import logo from '../../../../images/logos/logo.png'
 
@@ -11,12 +11,14 @@ const HeaderDashboard = () => {
     return (
         <Row className="p-3">
             <Col xs={12} md={3}>
-            <Image src={logo} className="logo-img" />
+                <Link to='/'>
+                    <Image src={logo} className="logo-img" />
+                </Link>
             </Col>
             <Col xs={6} md={5}>
                 <h2>
                     {
-                        path === '/user/place-order' && 'Place Order'
+                        path === '/user/place-order' || path === '/user' && 'Place Order'
                     }
                     {
                         path === '/user/service-list' && 'Your Service List'
@@ -36,7 +38,7 @@ const HeaderDashboard = () => {
                 </h2> 
             </Col>
             <Col style={{textAlign: 'end', paddingRight: '5rem'}} xs={6} md={4}>
-                {loggedInUser.name || 'name'}
+                {loggedInUser.name}
             </Col>
         </Row>
     );
