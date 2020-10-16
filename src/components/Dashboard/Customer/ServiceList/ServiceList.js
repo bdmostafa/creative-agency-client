@@ -41,7 +41,7 @@ const ServiceList = () => {
                     <Col key={service._id} md={5}>
                         <Card className="service-card">
                             <Row className='d-flex justify-content-between align-items-center p-4'>
-                                <Card.Img src={service && `data:image/png;base64,${service.img.img}`} className="w-25" />
+                                <Card.Img src={service && `data:image/png;base64,${service.img.img ? service.img.img : service.image.img}`} className="w-25" />
                                 <Button variant="primary">{service.status}</Button>
                             </Row>
                             <Card.Body>

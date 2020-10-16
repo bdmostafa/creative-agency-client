@@ -3,10 +3,10 @@
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    height: 45ch;
 }
 
-.card {
-    height: 45ch;
+.card-animated {
     background-size: cover;
     background-position: center center;
     transition: box-shadow 0.5s;

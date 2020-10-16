@@ -49,6 +49,7 @@ const AddReview = () => {
                     type="text"
                     ref={register({ required: true })}
                     placeholder="Your name*"
+                    defaultValue={loggedInUser && loggedInUser.name}
                 />
                 {
                     errors.name
@@ -65,6 +66,7 @@ const AddReview = () => {
                     && <span className="error">Company's name, designation is required</span>
                 }
                 <Form.Control
+                    maxLength="100"
                     name="description"
                     type="text"
                     ref={register({ required: true })}

@@ -32,20 +32,21 @@ const Login = () => {
     // Check if the user is an admin or not when logged in for the first time 
     useEffect(() => {
         fetch('http://localhost:4200/isAdmin', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ email: loggedInUser.email })
+                'Accept': 'application/json',
+                email: loggedInUser.email
+            }
         })
             .then(res => res.json())
             .then(result => {
                 console.log(result)
                 if (result) setAdmin(true);
+                
             })
 
-    }, [])
+    }, [loggedInUser])
 
     // useEffect(async () => {
     //     const resData = await fetch('http://localhost:4200/isAdmin', {

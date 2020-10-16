@@ -88,6 +88,7 @@ const AddService = () => {
                         <Col md={5}>
                             <Form.Label>Description</Form.Label>
                             <Form.Control
+                                maxLength="100"
                                 as="textarea" rows={3}
                                 name="description"
                                 ref={register({ required: true })}
