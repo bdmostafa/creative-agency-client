@@ -11,7 +11,7 @@ const ClientsFeedback = () => {
 
     // When page is loaded, fetch api to get all services
     useEffect(() => {
-        fetch('http://https://creative-agency2020.herokuapp.com/reviews')
+        fetch('https://creative-agency2020.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);

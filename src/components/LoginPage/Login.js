@@ -36,7 +36,7 @@ const Login = () => {
     // Check if the user is an admin or not when logged in for the first time 
     useEffect(() => {
 
-        fetch('http://https://creative-agency2020.herokuapp.com/isAdmin', {
+        fetch('https://creative-agency2020.herokuapp.com/isAdmin', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

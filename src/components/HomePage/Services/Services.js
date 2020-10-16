@@ -15,7 +15,7 @@ const Services = () => {
 
     // When page is loaded, fetch api to get all services
     useEffect(() => {
-        fetch('http://https://creative-agency2020.herokuapp.com/services')
+        fetch('https://creative-agency2020.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);

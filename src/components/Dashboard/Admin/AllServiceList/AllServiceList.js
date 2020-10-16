@@ -12,7 +12,7 @@ const AllServiceList = () => {
     const [orderedServices, setOrderedServices] = useState([]);
 
     useEffect(() => {
-        fetch('http:///https://creative-agency2020.herokuapp.com/ordersListByEmail', {
+        fetch('/https://creative-agency2020.herokuapp.com/ordersListByEmail', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -22,7 +22,7 @@ const AllServiceList = () => {
     }, [])
 
     const handleStatus = (e, id) => {
-        fetch(`http://https://creative-agency2020.herokuapp.com/updateStatus`, {
+        fetch(`https://creative-agency2020.herokuapp.com/updateStatus`, {
             method: 'PATCH',
             body: JSON.stringify({ status: e.value }),
             headers: {

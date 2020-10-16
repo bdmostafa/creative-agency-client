@@ -29,7 +29,7 @@ const AddService = () => {
         formData.append('total', totalData)
         formData.append('file', data.icon[0]);
 
-        fetch('http://https://creative-agency2020.herokuapp.com/addService', {
+        fetch('https://creative-agency2020.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })

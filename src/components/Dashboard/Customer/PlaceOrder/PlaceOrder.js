@@ -32,7 +32,7 @@ const PlaceOrder = () => {
         formData.append('total', totalData)
         formData.append('file', data.projectFile[0]);
 
-        fetch('http://https://creative-agency2020.herokuapp.com/placeOrder', {
+        fetch('https://creative-agency2020.herokuapp.com/placeOrder', {
             method: 'POST',
             body: formData
         })

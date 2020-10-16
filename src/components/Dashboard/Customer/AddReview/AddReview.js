@@ -22,7 +22,7 @@ const AddReview = () => {
             description: data.description
         };
 
-        fetch('http://https://creative-agency2020.herokuapp.com/addReview', {
+        fetch('https://creative-agency2020.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
