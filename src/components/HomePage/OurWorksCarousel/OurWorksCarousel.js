@@ -4,37 +4,12 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 's
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import { BsArrowRight } from 'react-icons/bs';
 import 'swiper/swiper.scss';
-// import 'swiper/components/navigation/navigation.scss';
-// import 'swiper/components/pagination/pagination.scss';
-// import 'swiper/components/scrollbar/scrollbar.scss';
-import carousel1 from '../../../images/carousel-1.png';
-import carousel2 from '../../../images/carousel-2.png';
 import 'swiper/swiper-bundle.css';
+import CarouselData from './CarouselData';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
 const OurWorksCarousel = () => {
-    const [slideIndex, setSlideIndex] = useState(0);
-    const [service, setService] = useState({})
-
-    const works = [carousel1, carousel2, carousel1, carousel2, carousel1, carousel2]
-
-    useEffect(() => {
-        const activeItem = works.find((works, index) => index.toString() === slideIndex.toString())
-        setService(activeItem)
-    }, [slideIndex])
-
-// console.log(service, slideIndex)
-
-    const onClickHandler = swiper => {
-        if (swiper.clickedSlide) {
-            if (swiper.clickedSlide.attributes) {
-                var a = swiper.clickedSlide.attributes.getNamedItem('data-swiper-slide-index').value;
-                setSlideIndex(a);
-            }
-        }
-    }
-
 
     return (
         <Container className="text-center mb-5 pb-5">
@@ -51,13 +26,11 @@ const OurWorksCarousel = () => {
                         disableOnInteraction: false
                     }}
                     loop={true}
-                    onClick={(swiper) => onClickHandler(swiper)}
-                    onSlideChange={(swiper) => setSlideIndex(swiper.realIndex)}
                 >
-                    {works.map(w => {
+                    {CarouselData.map((carousel, idx) => {
                         return (
-                            <SwiperSlide >
-                                <Card.Img variant="top" src={w} className="w-100 m-5 mb-5 p-3"/>
+                            <SwiperSlide key={idx}>
+                                <Card.Img variant="top" src={carousel} className="w-100 m-5 mb-5 p-3"/>
                             </SwiperSlide>
                         )
                     })}

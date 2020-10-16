@@ -19,7 +19,7 @@ const Login = () => {
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
 
-console.log(loggedInUser)
+    console.log(loggedInUser)
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(res => {
@@ -33,16 +33,36 @@ console.log(loggedInUser)
     useEffect(() => {
         fetch('http://localhost:4200/isAdmin', {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
             body: JSON.stringify({ email: loggedInUser.email })
         })
             .then(res => res.json())
             .then(result => {
+                console.log(result)
                 if (result) setAdmin(true);
             })
 
-    }, [loggedInUser])
+    }, [])
 
+    // useEffect(async () => {
+    //     const resData = await fetch('http://localhost:4200/isAdmin', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json'
+    //         },
+    //         body: JSON.stringify({ email: loggedInUser.email })
+    //     })
+    //     const result = await resData.json();
+    //     console.log(result)
+    //     console.log(result)
+    //             if (result) setAdmin(true);
+    
+
+    // }, [loggedInUser])
 
 
     return (

@@ -11,6 +11,7 @@ import AllServiceList from './Admin/AllServiceList/AllServiceList';
 import AddService from './Admin/AddService/AddService';
 import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
 import { UserContext } from '../../App';
+import Footer from '../Footer/Footer';
 
 
 const Dashboard = () => {
@@ -22,13 +23,13 @@ const Dashboard = () => {
      useEffect(() => {
         if (admin) {
             setUser(false);
-            if(path.startsWith('user', 10)) {
+            if(path.startsWith('dashboard', 1)) {
                 history.replace('/dashboard/admin')
             }
         }
         if(user) {
             // setAdmin(false);
-            if(path.startsWith('admin', 10)) {
+            if(path.startsWith('dashboard', 1)) {
                 history.push('/dashboard/user')
             }
         }
@@ -64,6 +65,7 @@ const Dashboard = () => {
                     }
                 </Col>
             </Row>
+            <Footer />
         </div>
 
     );
