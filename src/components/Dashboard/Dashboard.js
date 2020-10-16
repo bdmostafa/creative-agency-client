@@ -38,7 +38,7 @@ const Dashboard = () => {
     console.log('user:', user, 'admin:', admin)
 
     return (
-        <div style={{ backgroundColor: 'white'}}>
+        <div style={{ backgroundColor: 'white', paddingLeft: '2rem'}}>
             <HeaderDashboard />
             <Row >
                 <Col xs={12} md={3}>

@@ -38,9 +38,7 @@ const HeaderDashboard = () => {
                 </h2> 
             </Col>
             <Col style={{textAlign: 'end', paddingRight: '5rem'}} xs={6} md={4}>
-                {
-                    admin && <Image src={loggedInUser.image} style={{width: '45px', marginRight: '10px'}} roundedCircle />
-                }
+                <Image src={loggedInUser.image} style={{width: '45px', marginRight: '10px'}} roundedCircle />
                 <strong>{loggedInUser.name}</strong> 
             </Col>
         </Row>

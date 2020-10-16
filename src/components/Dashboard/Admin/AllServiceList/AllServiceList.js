@@ -31,7 +31,9 @@ const AllServiceList = () => {
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    alert("You have successfully updated an order status")
+                    alert("You have successfully updated an order status");
+                } else {
+                    alert("Oops... Status has not been updated. Please try again.");
                 }
             })
     }

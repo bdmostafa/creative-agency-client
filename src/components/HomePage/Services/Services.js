@@ -12,12 +12,7 @@ const Services = () => {
 
     // When page is loaded, fetch api to get all services
     useEffect(() => {
-        fetch('http://localhost:4200/services', {
-            headers : { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-               }
-        })
+        fetch('http://localhost:4200/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);

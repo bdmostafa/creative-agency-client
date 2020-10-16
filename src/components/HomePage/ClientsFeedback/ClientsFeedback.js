@@ -9,12 +9,7 @@ const ClientsFeedback = () => {
 
     // When page is loaded, fetch api to get all services
     useEffect(() => {
-        fetch('http://localhost:4200/reviews', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
+        fetch('http://localhost:4200/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);

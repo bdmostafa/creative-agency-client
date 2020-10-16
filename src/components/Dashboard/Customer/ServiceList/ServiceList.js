@@ -38,7 +38,7 @@ const ServiceList = () => {
             {
                 orderedServices.length > 0
                 && orderedServices.map(service =>
-                    <Col key={service._id} md={5}>
+                    <Col key={service._id} xs={10} sm={10} md={5}>
                         <Card className="service-card">
                             <Row className='d-flex justify-content-between align-items-center p-4'>
                                 <Card.Img src={service && `data:image/png;base64,${service.img.img ? service.img.img : service.image.img}`} className="w-25" />
@@ -49,7 +49,7 @@ const ServiceList = () => {
                                     {service.title}
                                 </Card.Title>
                                 <Card.Text>
-                                    {service.description}
+                                    {service.description ? service.description : service.projectDetails}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
