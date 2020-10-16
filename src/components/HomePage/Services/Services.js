@@ -1,18 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { Button, Container, Row, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import './Services.css';
 import ServicesCard from './ServicesCard';
 
 const Services = () => {
+
     const [services, setServices] = useState([]);
+    
     const { setOrder } = useContext(UserContext);
+    
     const history = useHistory();
 
     // When page is loaded, fetch api to get all services
     useEffect(() => {
-        fetch('http://localhost:4200/services')
+        fetch('http://https://creative-agency2020.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
@@ -27,7 +30,9 @@ const Services = () => {
 
     return (
         <Container className="text-center mb-5">
+
             <Row><h2 className="m-auto p-5">Provide awesome <span style={{ color: '#7AB259' }}>services</span> </h2></Row>
+
             <Row>
                 {
                     services.length === 0

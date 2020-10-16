@@ -6,13 +6,14 @@ import logo from '../../../../images/logos/logo.png';
 import './NavBar.css';
 
 const NavBar = () => {
+    
     const history = useHistory();
+
     const { loggedInUser } = useContext(UserContext);
 
     const handleLogin = () => {
         history.push('/login');
     }
-
 
     return (
         <Container>

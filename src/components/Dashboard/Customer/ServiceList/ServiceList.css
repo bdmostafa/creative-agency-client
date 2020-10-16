@@ -9,3 +9,21 @@
 .service-card .card-body {
     margin-top: -15px;
 }
+
+.pending-red {
+    color: #FF4545;
+    background-color: #FFE3E3;
+    border: none;
+}
+
+.onGoing-yellow {
+    color: #FFBD3E;
+    background-color: #f1be5ede;
+    border: none;
+}
+
+.done-green {
+    color: #009444;
+    background-color: #C6FFE0;
+    border: none;
+}

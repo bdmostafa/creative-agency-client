@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Image, Row, Spinner } from 'react-bootstrap';
+import { Button, Container, Row, Spinner } from 'react-bootstrap';
 import './ClientsFeedback.css'
+import FeedbackCard from './FeedbackCard';
 
 const ClientsFeedback = () => {
     const [reviews, setReviews] = useState([]);
 
+    // Slice 6 reviews for displaying 
     const reviews6 = reviews.slice(0, 6);
 
     // When page is loaded, fetch api to get all services
     useEffect(() => {
-        fetch('http://localhost:4200/reviews')
+        fetch('http://https://creative-agency2020.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
@@ -33,29 +35,7 @@ const ClientsFeedback = () => {
                 }
                 {
                     reviews6.length > 0
-                    && reviews6.map(review =>
-                        <Col key={review._id} xs={12} sm={6} md={4}>
-                            <Card className="feedback-box mb-5 p-1">
-                                {/* <Row className="align-items-center justify-content-start"> */}
-                                <div className=" d-flex align-items-center justify-content-start">
-                                    <div className="p-2 col-example text-left">
-                                        <Image src={review.image} style={{width:'64px', height:'64px', borderRadius:'50%'}} />
-                                    </div>
-                                    <div className="p-2 col-example text-left">
-                                        <Card.Title>{review.name}</Card.Title>
-                                        <p>{review.designation}</p>
-                                    </div>
-                                </div>
-
-                                {/* </Row> */}
-                                <Card.Body>
-                                    <Card.Text className="text-style">
-                                        {review.description}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )
+                    && reviews6.map(review => <FeedbackCard key={review._id} review={review} ></FeedbackCard>)
                 }
             </Row>
         </Container>

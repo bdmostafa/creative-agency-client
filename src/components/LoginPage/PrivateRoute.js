@@ -22,35 +22,19 @@ const PrivateRoute = ({ children, ...rest }) => {
   }
 
   return (
-    // <Route
-    //   {...rest}
-    //   render={({ location }) =>
-    //     (loggedInUser.email || isLoggedIn()) ? (
-    //       children
-    //     ) : (
-    //         <Redirect
-    //           to={{
-    //             pathname: "/login",
-    //             state: { from: location }
-    //           }}
-    //         />
-    //       )
-    //   }
-    // />
-
     <Route
       {...rest}
       render={({ location }) =>
         loggedInUser.email ? (
           children
         ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location }
-            }}
-          />
-        )
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: location }
+              }}
+            />
+          )
       }
     />
   );

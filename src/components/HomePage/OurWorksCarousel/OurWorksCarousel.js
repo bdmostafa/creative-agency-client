@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Card, Container, Row } from 'react-bootstrap';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import { BsArrowRight } from 'react-icons/bs';
 import 'swiper/swiper.scss';
 import 'swiper/swiper-bundle.css';
 import CarouselData from './CarouselData';
@@ -18,9 +17,10 @@ const OurWorksCarousel = () => {
                 <Swiper
                     slidesPerView={3}
                     navigation
-                    // Pagination
-                    // Scrollbar
-                    // A11y
+                    Pagination={{
+                        el: '.swiper-pagination',
+                        type: 'bullets',
+                      }}
                     autoplay={{
                         delay: 2000,
                         disableOnInteraction: false

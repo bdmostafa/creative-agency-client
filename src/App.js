@@ -46,31 +46,6 @@ function App() {
           <PrivateRoute path="/dashboard">
             <Dashboard />
           </PrivateRoute>
-
-          
-          {/* <PrivateRoute path="/admin">
-            <Dashboard />
-          </PrivateRoute> */}
-
-
-          {/* <PrivateRoute path="/user/place-order">
-            <Dashboard />
-          </PrivateRoute>
-          <PrivateRoute path="/user/service-list">
-            <Dashboard />
-          </PrivateRoute>
-          <PrivateRoute path="/user/add-review">
-            <Dashboard />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/service-list">
-            <Dashboard />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/add-service">
-            <Dashboard />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/make-admin">
-            <Dashboard />
-          </PrivateRoute> */}
           <Route path="*">
             <NoMatch />
           </Route>

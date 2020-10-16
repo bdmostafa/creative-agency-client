@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, Col, Row, Spinner } from 'react-bootstrap';
 import { UserContext } from '../../../../App';
-import service from '../../../../images/icons/service1.png';
 import './ServiceList.css'
 
 const ServiceList = () => {
+    document.title = "Dashboard | Your Service List | Creative Agency"
+
     const { loggedInUser } = useContext(UserContext);
+
     const [orderedServices, setOrderedServices] = useState([]);
 
     useEffect(() => {
-        fetch('http:///localhost:4200/ordersListByEmail', {
+        fetch('http:///https://creative-agency2020.herokuapp.com/ordersListByEmail', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -18,7 +20,18 @@ const ServiceList = () => {
             .then(data => setOrderedServices(data))
     }, [])
 
-    console.log(loggedInUser.email, orderedServices)
+    // Handle button color change depending on status
+    const handleStatusColor = (status) => {
+        if (status === 'Pending') {
+            return 'pending-red';
+        };
+        if (status === 'Done') {
+            return 'done-green';
+        }
+        if (status === 'On Going') {
+            return 'onGoing-yellow';
+        }
+    }
 
     return (
         <Row>
@@ -42,7 +55,12 @@ const ServiceList = () => {
                         <Card className="service-card">
                             <Row className='d-flex justify-content-between align-items-center p-4'>
                                 <Card.Img src={service && `data:image/png;base64,${service.img.img ? service.img.img : service.image.img}`} className="w-25" />
-                                <Button variant="primary">{service.status}</Button>
+                                <Button
+                                    className={handleStatusColor(service.status)}
+                                    variant="primary"
+                                >
+                                    {service.status}
+                                </Button>
                             </Row>
                             <Card.Body>
                                 <Card.Title>

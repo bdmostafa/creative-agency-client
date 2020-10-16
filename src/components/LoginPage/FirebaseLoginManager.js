@@ -3,6 +3,7 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 
 export const loginFrameworkInit = () => {
+
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
     }
@@ -10,10 +11,11 @@ export const loginFrameworkInit = () => {
 
 
 export const googleSignIn = () => {
+
     const googleProvider = new firebase.auth.GoogleAuthProvider();
+
     return firebase.auth().signInWithPopup(googleProvider)
         .then(res => {
-            console.log(res.user)
             const { displayName, email, photoURL } = res.user;
             const signedInUser = { name: displayName, email, image: photoURL }
             // storeAuthToken();
@@ -27,6 +29,7 @@ export const googleSignIn = () => {
 
 // Set Auth Token when
 const storeAuthToken = () => {
+    
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
         .then(idToken => {
             sessionStorage.setItem('token', idToken);

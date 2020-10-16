@@ -1,20 +1,25 @@
 import React, { useContext } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 import './PlaceOrder.css';
 
 
 const PlaceOrder = () => {
+    document.title = "Dashboard | Place Order | Creative Agency"
+
     const { loggedInUser, order } = useContext(UserContext);
+
     const history = useHistory();
 
     const { register, errors, handleSubmit } = useForm();
+
     const onSubmit = data => {
+
         const { name, email, projectDetails, price } = data;
-        console.log(data)
         const formData = new FormData();
+
         const totalData = JSON.stringify({
             ...order,
             name,
@@ -27,7 +32,7 @@ const PlaceOrder = () => {
         formData.append('total', totalData)
         formData.append('file', data.projectFile[0]);
 
-        fetch('http://localhost:4200/placeOrder', {
+        fetch('http://https://creative-agency2020.herokuapp.com/placeOrder', {
             method: 'POST',
             body: formData
         })
@@ -40,10 +45,10 @@ const PlaceOrder = () => {
             })
     }
 
+    // Handle uplaod image/file
     const handleProjectFile = () => {
         document.getElementById('project-file').click();
     }
-
 
     return (
         <Row md={6}>
@@ -64,7 +69,7 @@ const PlaceOrder = () => {
                     && <span className="error">Your name / company name is required</span>
                 }
                 <Form.Control
-                    // disabled
+                    disabled
                     name="email"
                     type="email"
                     ref={register({ required: true })}
@@ -96,12 +101,12 @@ const PlaceOrder = () => {
                     errors.projectDetails
                     && <span className="error mt-3 mb-0">Project details is required</span>
                 }
-                <Row style={{display: 'inline-flex'}}>
+                <Row style={{ display: 'inline-flex' }}>
                     <Col md={6}>
                         <Form.Control
                             name="price"
                             type="number"
-                            style={{width: '88%'}}
+                            style={{ width: '88%' }}
                             ref={register({ required: true })}
                             placeholder="Price*"
                             defaultValue={order.price ? order.price : ''}
@@ -120,12 +125,12 @@ const PlaceOrder = () => {
                             ref={register({ required: true })}
                             placeholder="Upload*"
                         />
-                            <Button
-                                className="btn-project-upload"
-                                onClick={handleProjectFile}
-                            >
-                                <i className="fas fa-cloud-upload-alt"></i>
-                                {' '} Upload project file
+                        <Button
+                            className="btn-project-upload"
+                            onClick={handleProjectFile}
+                        >
+                            <i className="fas fa-cloud-upload-alt"></i>
+                            {' '} Upload project file
                             </Button>
                         {
                             errors.projectFile
@@ -140,7 +145,7 @@ const PlaceOrder = () => {
                     variant="dark"
                 >
                     SEND
-                        </Button>
+                </Button>
             </Form>
         </Row>
     );

@@ -5,13 +5,15 @@ import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 
 const AddReview = () => {
+    document.title = "Dashboard | Add Review | Creative Agency"
+
     const { loggedInUser } = useContext(UserContext);
+    
     const history = useHistory();
-    console.log(loggedInUser.image)
+
     const { register, errors, handleSubmit } = useForm();
 
     const onSubmit = data => {
-
 
         const updatedForm = {
             image: loggedInUser.image,
@@ -20,8 +22,7 @@ const AddReview = () => {
             description: data.description
         };
 
-        console.log(updatedForm)
-        fetch('http://localhost:4200/addReview', {
+        fetch('http://https://creative-agency2020.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

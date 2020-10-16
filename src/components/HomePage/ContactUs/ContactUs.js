@@ -4,8 +4,11 @@ import { useForm } from "react-hook-form";
 import './ContactUs.css'
 
 const ContactUs = () => {
+    
     const { register, errors, handleSubmit } = useForm();
+
     const onSubmit = data => { console.log(data)}
+    
     return (
         <Container className="pt-5 pb-5">
             <Row>

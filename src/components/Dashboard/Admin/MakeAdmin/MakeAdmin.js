@@ -4,10 +4,13 @@ import { useForm } from 'react-hook-form';
 import './MakeAdmin.css';
 
 const MakeAdmin = () => {
+    document.title = "Dashboard | Make Admin | Creative Agency"
+
     const { register, errors, handleSubmit } = useForm();
+
     const onSubmit = data => {
-        console.log(data)
-        fetch('http://localhost:4200/makeAdmin', {
+
+        fetch('http://https://creative-agency2020.herokuapp.com/makeAdmin', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -18,13 +21,16 @@ const MakeAdmin = () => {
             .then(result => {
                 if (result) {
                     alert('You have added an admin successfully')
+                } else {
+                    alert('Oops...! new admin has not been added. Please try again.')
                 }
             })
     }
     return (
-        <Row style={{width: '90%'}}>
+
+        <Row style={{ width: '90%' }}>
             <Col className="make-admin-box">
-            <Form.Label>Email</Form.Label><br />
+                <Form.Label>Email</Form.Label><br />
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Control
                         type="email"
@@ -42,7 +48,7 @@ const MakeAdmin = () => {
                         variant="dark"
                     >
                         Submit
-            </Button>
+                    </Button>
                 </Form>
             </Col>
         </Row>

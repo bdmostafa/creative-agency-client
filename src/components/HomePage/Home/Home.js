@@ -9,6 +9,8 @@ import OurWorksCarousel from '../OurWorksCarousel/OurWorksCarousel';
 import Footer from '../../Footer/Footer';
 
 const Home = () => {
+    document.title = "Home | Your Ideas, Our Development | Creative Agency"
+    
     return (
         <>
             <div

@@ -6,17 +6,19 @@ import './AddService.css';
 
 
 const AddService = () => {
+    document.title = "Dashboard | Admin | Add Service | Creative Agency"
+
     const history = useHistory();
 
     const { register, errors, handleSubmit } = useForm();
 
+    // Handle uplaod image
     const handleImage = () => {
         document.getElementById('image').click();
     }
 
-
     const onSubmit = data => {
-        console.log(data)
+
         const formData = new FormData();
         const totalData = JSON.stringify({
             title: data.title,
@@ -27,7 +29,7 @@ const AddService = () => {
         formData.append('total', totalData)
         formData.append('file', data.icon[0]);
 
-        fetch('http://localhost:4200/addService', {
+        fetch('http://https://creative-agency2020.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
@@ -72,9 +74,8 @@ const AddService = () => {
                             <Button
                                 className="btn-upload"
                                 onClick={handleImage}
-                                // type="button"
                             >
-                                <i class="fas fa-cloud-upload-alt"></i>
+                                <i className="fas fa-cloud-upload-alt"></i>
                                 {' '} Upload Image
                             </Button>
                             <br />

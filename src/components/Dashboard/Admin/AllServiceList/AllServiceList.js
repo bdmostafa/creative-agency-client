@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, DropdownButton, Row, Spinner, Table } from 'react-bootstrap';
+import { Button, Row, Spinner, Table } from 'react-bootstrap';
 import { UserContext } from '../../../../App';
 import './AllServiceList.css';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 const AllServiceList = () => {
+    document.title = "Dashboard | Admin | All Services List | Creative Agency"
+
     const { loggedInUser } = useContext(UserContext);
     const [orderedServices, setOrderedServices] = useState([]);
 
     useEffect(() => {
-        fetch('http:///localhost:4200/ordersListByEmail', {
+        fetch('http:///https://creative-agency2020.herokuapp.com/ordersListByEmail', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -20,7 +22,7 @@ const AllServiceList = () => {
     }, [])
 
     const handleStatus = (e, id) => {
-        fetch(`http://localhost:4200/updateStatus/`, {
+        fetch(`http://https://creative-agency2020.herokuapp.com/updateStatus`, {
             method: 'PATCH',
             body: JSON.stringify({ status: e.value }),
             headers: {
@@ -38,11 +40,10 @@ const AllServiceList = () => {
             })
     }
 
+    // Array of three categories of status
     const options = [
         'Pending', 'On going', 'Done'
     ];
-    // const defaultOption = options[0];
-
 
     return (
         <div className="pr-5">
@@ -67,11 +68,9 @@ const AllServiceList = () => {
                                 <td>{service.projectDetails}</td>
                                 <td className="status">
                                     <Dropdown
-                                    style={{color: 'red'}}
                                         onChange={(e) => { handleStatus(e, `${service._id}`) }}
                                         options={options}
                                         value={service.status}
-                                    // placeholder="Select an option" 
                                     />
                                 </td>
                             </tr>

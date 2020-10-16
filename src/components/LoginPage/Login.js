@@ -10,17 +10,21 @@ import logo from '../../images/logos/logo.png';
 import googleIcon from '../../images/icons/google.png';
 
 const Login = () => {
+    document.title = "Login Page | Creative Agency"
+
     // Initialize firebase/login framework
     loginFrameworkInit();
 
     const { loggedInUser, setLoggedInUser, setAdmin } = useContext(UserContext);
 
     const history = useHistory();
+
     const location = useLocation();
+    
     const { from } = location.state || { from: { pathname: "/" } };
 
-    console.log(loggedInUser)
     const handleGoogleSignIn = () => {
+
         googleSignIn()
             .then(res => {
                 setLoggedInUser(res);
@@ -31,7 +35,8 @@ const Login = () => {
 
     // Check if the user is an admin or not when logged in for the first time 
     useEffect(() => {
-        fetch('http://localhost:4200/isAdmin', {
+
+        fetch('http://https://creative-agency2020.herokuapp.com/isAdmin', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,29 +46,11 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
                 if (result) setAdmin(true);
                 
             })
 
     }, [loggedInUser])
-
-    // useEffect(async () => {
-    //     const resData = await fetch('http://localhost:4200/isAdmin', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Accept': 'application/json'
-    //         },
-    //         body: JSON.stringify({ email: loggedInUser.email })
-    //     })
-    //     const result = await resData.json();
-    //     console.log(result)
-    //     console.log(result)
-    //             if (result) setAdmin(true);
-    
-
-    // }, [loggedInUser])
 
 
     return (
