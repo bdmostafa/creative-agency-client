@@ -1,4 +1,4 @@
-# Creative Agency - A Web Services Agency | Full Stack development Project
+# Creative Agency - A Full Stack development Project
 
 ### [LIVE](https://creative-agency2020.web.app/) [Server](https://creative-agency2020.herokuapp.com) [Server Source Code](https://github.com/bdmostafa/creative-agency-server)
 
