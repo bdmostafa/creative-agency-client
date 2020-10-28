@@ -33,7 +33,7 @@ const Services = () => {
 
             <Row><h2 className="m-auto p-5">Provide awesome <span style={{ color: '#7AB259' }}>services</span> </h2></Row>
 
-            <Row>
+            <Row className="justify-content-center">
                 {
                     services.length === 0
                     && <Button className="m-5 m-auto" variant="primary" disabled>

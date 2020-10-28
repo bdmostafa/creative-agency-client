@@ -1,8 +1,9 @@
 .right-side-content {
     background-color: #F4F7FC;
-    padding-top: 3rem;
-    padding-left: 3rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
     display: inline-table;
     padding-bottom: 10rem;
     min-height: 100vh;
+    padding-right: 2rem;
 }

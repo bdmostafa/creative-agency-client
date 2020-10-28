@@ -11,21 +11,25 @@ const PlaceOrder = () => {
 
     const { loggedInUser, order } = useContext(UserContext);
 
+    const { title, description, img, price } = order;
+    
     const history = useHistory();
 
     const { register, errors, handleSubmit } = useForm();
 
     const onSubmit = data => {
 
-        const { name, email, projectDetails, price } = data;
+        const { title, name, email, projectDetails, price } = data;
         const formData = new FormData();
 
         const totalData = JSON.stringify({
-            ...order,
+            description,
+            title,
+            img,
+            price,
             name,
             email,
             projectDetails,
-            price,
             status: 'Pending'
         });
 
@@ -39,7 +43,7 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(result => {
                 if (result) {
-                    alert(`Congratulations! You have placed an oreder on ${order.title} successfully.`)
+                    alert(`Congratulations! You have placed an oreder on ${title} successfully.`)
                     history.replace('/')
                 }
             })
@@ -69,7 +73,7 @@ const PlaceOrder = () => {
                     && <span className="error">Your name / company name is required</span>
                 }
                 <Form.Control
-                    disabled
+                    // disabled
                     name="email"
                     type="email"
                     ref={register({ required: true })}
@@ -81,14 +85,14 @@ const PlaceOrder = () => {
                     && <span className="error">Email is required</span>
                 }
                 <Form.Control
-                    name="service"
+                    name="title"
                     type="text"
                     ref={register({ required: true })}
                     placeholder="Your service name*"
-                    defaultValue={order.title}
+                    defaultValue={order.title ? title : ""}
                 />
                 {
-                    errors.service
+                    errors.title
                     && <span className="error">Service name is required</span>
                 }
                 <Form.Control
@@ -109,7 +113,7 @@ const PlaceOrder = () => {
                             style={{ width: '88%' }}
                             ref={register({ required: true })}
                             placeholder="Price*"
-                            defaultValue={order.price ? order.price : ''}
+                            defaultValue={order.price ? price : ''}
                         />
                         {
                             errors.price

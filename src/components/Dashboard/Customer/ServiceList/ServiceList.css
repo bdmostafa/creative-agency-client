@@ -2,12 +2,13 @@
     border: none;
     border-radius: 20px;
     padding: 1rem;
-    margin: 25px;
+    margin-bottom: 25px;
     height: 254px;
 }
 
 .service-card .card-body {
     margin-top: -15px;
+    margin-left: -15px;
 }
 
 .pending-red {
@@ -17,8 +18,8 @@
 }
 
 .onGoing-yellow {
-    color: #FFBD3E;
-    background-color: #f1be5ede;
+    color: #fd8c01;
+    background-color: #FFBD3E4a;
     border: none;
 }
 

@@ -4,6 +4,7 @@
 
 .sidebar-list ul li {
     list-style: none;
+    margin-bottom: 1rem;
 }
 
 .sidebar-list ul li a {

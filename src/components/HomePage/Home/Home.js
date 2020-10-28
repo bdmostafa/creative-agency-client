@@ -25,7 +25,7 @@ const Home = () => {
             </div>
             <ClientCompany />
             <Services />
-            <div className="w-100" style={{ backgroundColor: '#111430' }}>
+            <div className="w-100" style={{ backgroundColor: '#3A4256' }}>
                 <OurWorksCarousel />
             </div>
             <ClientsFeedback />

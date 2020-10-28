@@ -11,10 +11,12 @@ const ServiceList = () => {
     const [orderedServices, setOrderedServices] = useState([]);
 
     useEffect(() => {
-        fetch('/https://creative-agency2020.herokuapp.com/ordersListByEmail', {
+        fetch('https://creative-agency2020.herokuapp.com/ordersListByEmail', {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ email: loggedInUser.email })
+            headers: {
+                'Content-type': 'application/json',
+                email: loggedInUser.email
+            }
         })
             .then(res => res.json())
             .then(data => setOrderedServices(data))
@@ -28,7 +30,7 @@ const ServiceList = () => {
         if (status === 'Done') {
             return 'done-green';
         }
-        if (status === 'On Going') {
+        if (status === 'On going') {
             return 'onGoing-yellow';
         }
     }
@@ -51,9 +53,9 @@ const ServiceList = () => {
             {
                 orderedServices.length > 0
                 && orderedServices.map(service =>
-                    <Col key={service._id} xs={10} sm={10} md={5}>
+                    <Col key={service._id} xs={12} sm={12} md={6}>
                         <Card className="service-card">
-                            <Row className='d-flex justify-content-between align-items-center p-4'>
+                            <Row className='d-flex justify-content-between align-items-center pt-3 pl-3 pr-3 pb-2'>
                                 <Card.Img src={service && `data:image/png;base64,${service.img.img ? service.img.img : service.image.img}`} className="w-25" />
                                 <Button
                                     className={handleStatusColor(service.status)}

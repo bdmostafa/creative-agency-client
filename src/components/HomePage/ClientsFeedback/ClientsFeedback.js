@@ -19,7 +19,7 @@ const ClientsFeedback = () => {
     return (
         <Container className="text-center mb-5 pb-5">
             <Row><h2 className="m-auto p-5">Clients <span style={{ color: '#7AB259' }}> Feedback</span> </h2></Row>
-            <Row>
+            <Row className="justify-content-center">
                 {
                     reviews6.length === 0
                     && <Button className="m-5 m-auto" variant="primary" disabled>

@@ -34,7 +34,7 @@ const NavBar = () => {
                         {
                             loggedInUser
                                 && loggedInUser.name
-                                ? <strong> {loggedInUser.name}</strong>
+                                ? <strong className="ml-auto"> {loggedInUser.name}</strong>
                                 : <Button
                                     onClick={handleLogin}
                                     size="sm"

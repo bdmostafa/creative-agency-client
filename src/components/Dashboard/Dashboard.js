@@ -42,10 +42,10 @@ const Dashboard = () => {
         <div style={{ backgroundColor: 'white', paddingLeft: '2rem' }}>
             <HeaderDashboard />
             <Row >
-                <Col xs={12} md={3}>
+                <Col xs={12} sm={4} md={3}>
                     <Sidebar />
                 </Col>
-                <Col xs={12} md={9} className="right-side-content">
+                <Col xs={12} sm={8} md={9} className="right-side-content">
                     
                     {
                         user

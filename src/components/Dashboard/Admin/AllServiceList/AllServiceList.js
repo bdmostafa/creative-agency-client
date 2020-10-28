@@ -12,10 +12,12 @@ const AllServiceList = () => {
     const [orderedServices, setOrderedServices] = useState([]);
 
     useEffect(() => {
-        fetch('/https://creative-agency2020.herokuapp.com/ordersListByEmail', {
+        fetch('https://creative-agency2020.herokuapp.com/ordersListByEmail', {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ email: loggedInUser.email })
+            headers: {
+                'Content-type': 'application/json',
+                email: loggedInUser.email
+            }
         })
             .then(res => res.json())
             .then(data => setOrderedServices(data))

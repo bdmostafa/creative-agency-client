@@ -17,8 +17,8 @@ const OurWorksCarousel = () => {
                 <Swiper
                     slidesPerView={3}
                     navigation
-                    Pagination={{
-                        el: '.swiper-pagination',
+                    pagination={{
+                        clickable: true,
                         type: 'bullets',
                       }}
                     autoplay={{
