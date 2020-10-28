@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Creative Agency - A Web Services Agency
 
 ### [LIVE](https://creative-agency2020.web.app/) ### [Server](https://creative-agency2020.herokuapp.com) ### [Server Source Code](https://github.com/bdmostafa/creative-agency-server)
@@ -55,4 +53,4 @@ User can choose a service
 Admin can add a new service
 Admin can see all users list at a time
 Admin can make new admin
->>>>>>> ca2bb100ebb57b6ad1bd0a10b0decfb394b39c59
+
