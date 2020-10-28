@@ -38,4 +38,8 @@
 - React-Bootstrap
 - Firebase auth
 - Firebase Hosting
+<<<<<<< HEAD
 - Heroku
+=======
+- Heroku
+>>>>>>> 51b08f3af31788b4d8044276033f8329b3e98bc3
