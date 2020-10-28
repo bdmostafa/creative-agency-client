@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+# Creative Agency - A Full Stack development Project
 
-# Creative Agency - A Web Services Agency
-
-### [LIVE](https://creative-agency2020.web.app/) ### [Server](https://creative-agency2020.herokuapp.com) ### [Server Source Code](https://github.com/bdmostafa/creative-agency-server)
+### [Live Client](https://creative-agency2020.web.app/)    
+### [Live Server](https://creative-agency2020.herokuapp.com)    
+### [Server Source Code](https://github.com/bdmostafa/creative-agency-server)
 
 ## Features
 - Site is fully mobile friendly
@@ -39,20 +39,3 @@
 - Firebase auth
 - Firebase Hosting
 - Heroku
-
-=======
-This is a full-stack project
-#Front end
-Homepage in which all the data come from mongoDB cloud dynamically
-
-#Backend
-#User Panel
-User can see the list that he/she selected
-User can add review
-User can choose a service
-
-#Admin Panel
-Admin can add a new service
-Admin can see all users list at a time
-Admin can make new admin
->>>>>>> ca2bb100ebb57b6ad1bd0a10b0decfb394b39c59
