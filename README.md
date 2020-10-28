@@ -1,6 +1,6 @@
 # Creative Agency - A Full Stack development Project
 
-### [LIVE](https://creative-agency2020.web.app/) [Server](https://creative-agency2020.herokuapp.com) [Server Source Code](https://github.com/bdmostafa/creative-agency-server)
+### [LIVE Client](https://creative-agency2020.web.app/)    [Live Server](https://creative-agency2020.herokuapp.com)    [Server Source Code](https://github.com/bdmostafa/creative-agency-server)
 
 ## Features
 - Site is fully mobile friendly
