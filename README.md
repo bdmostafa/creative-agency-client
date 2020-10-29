@@ -1,3 +1,5 @@
+![Creative Agency](https://user-images.githubusercontent.com/62140337/97520634-e5d31600-19c5-11eb-9d87-207cf446c203.png)
+
 # Creative Agency - A Full Stack development Project
 
 ### [Live Client](https://creative-agency2020.web.app/)    
